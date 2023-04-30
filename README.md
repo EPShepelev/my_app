@@ -8,3 +8,8 @@
 - Prettier не находил файл с локальными настройками.
   Решение: переименовал файл prettierrc.json в .prettierrc и добавил это название в настройки VSCode
   в workspace settings (JSON) строку "prettier.configPath": ".prettierrc"
+- При коммите ыорнинг от гита про LF b CTLF
+  Решение: Полное описание тут https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
+  Выполнил команду git config --local core.autocrlf false
+
+## 2. Добавил базовую маршрутизацию, редирект, и redux store

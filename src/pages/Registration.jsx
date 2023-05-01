@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 
+import SignUp from '../components/SignUp/SignUp'
+
 export default function Registration() {
   return (
-    <div>
-      <h2>Регистрация</h2>
-      <p>
-        Уже есть аккаунт?
-        <Link to="/login">Войти</Link>
-      </p>
+    <div className="authBox">
+      <h2 className="authTitle">Регистрация</h2>
+      <SignUp />
+      <p>Уже есть аккаунт?</p>
+      <Link to="/login">Войти</Link>
     </div>
   )
 }

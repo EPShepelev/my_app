@@ -1,16 +1,12 @@
-# Пока цельной идеи нет, React приложение с максимально возможным функционалом
+# React приложение. Управление состоянием через Redux (Redux-toolkit) Backend - firebase
 
-## 1. Добавлен ESLint и Prettier
+## 1. Подключил ESLint и Prettier
 
-конфигурацию и настройки ESLint взял из статьи https://dev.to/eprikhodko/eslint-prettier-vs-code-create-react-app-airbnb-52bc
+Конфигурацию и настройки ESLint на основе [статьи](https://dev.to/eprikhodko/eslint-prettier-vs-code-create-react-app-airbnb-52bc)
 Проблемы:
 
-- Prettier не находил файл с локальными настройками.
-  Решение: переименовал файл prettierrc.json в .prettierrc и добавил это название в настройки VSCode
-  в workspace settings (JSON) строку "prettier.configPath": ".prettierrc"
-- При коммите ыорнинг от гита про LF b CTLF
-  Решение: Полное описание тут https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf
-  Выполнил команду git config --local core.autocrlf false
+- Prettier не находил файл с локальными настройками - переименовал файл prettierrc.json в .prettierrc и добавил это название в настройки VSCode в workspace settings (JSON) строку "prettier.configPath": ".prettierrc"
+- При коммите warning от гита про LF и CTLF - git config --local core.autocrlf false Подробное описание [тут](https://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf)
 
 ## 2. Добавил базовую маршрутизацию, редирект, и redux store
 
@@ -25,4 +21,3 @@
 ## 3. Список TODO:
   - реализовать страницу постов и функционал - просмотр постов других пользователей, создание/удаление своих постов
   - добавить простую валидацию - на пустоту пароля и на email
-

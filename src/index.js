@@ -7,8 +7,8 @@ import App from './App'
 import store from './store/index'
 import './firebase'
 
-import './styles/normalize.css'
-import './styles/main.css'
+import './styles/normalize.scss'
+import './styles/main.scss'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

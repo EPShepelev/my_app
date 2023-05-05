@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './Form.module.css'
+import Input from '../Input/Input'
+import Button from '../Button/Button'
+
+import styles from './Form.module.scss'
 
 export default function Form({ btnText, handleClick }) {
   const [email, setEmail] = useState('')
@@ -13,32 +16,21 @@ export default function Form({ btnText, handleClick }) {
   }
 
   return (
-    <div>
-      <form className={styles.form}>
-        {/* TODO: переделать на кастомные компоненты, как делал раньше */}
-        <input
-          className={styles.input}
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="e-mail"
-        />
-        <input
-          className={styles.input}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="пароль"
-        />
-        <button
-          className={styles.btn}
-          type="submit"
-          onClick={(e) => onSubmitClickHandle(e, email, password)}
-        >
-          {btnText}
-        </button>
-      </form>
-    </div>
+    <form className={styles.form}>
+      <Input
+        type="text"
+        value={email}
+        setValue={setEmail}
+        placeholder="e-mail"
+      />
+      <Input
+        type="password"
+        value={password}
+        setValue={setPassword}
+        placeholder="password"
+      />
+      <Button text={btnText} onClickHandler={onSubmitClickHandle} />
+    </form>
   )
 }
 

@@ -1,0 +1,16 @@
+@import '../../styles/colors.scss';
+
+.input {
+  padding: 10px 10px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  border: none;
+  background-color: $lightgreen;
+  color: $white;
+
+  &::placeholder {
+    color: $white;
+    font-weight: 300;
+  }
+}

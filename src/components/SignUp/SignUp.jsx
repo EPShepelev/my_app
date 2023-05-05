@@ -6,8 +6,6 @@ import { setUser } from '../../store/slices/user'
 
 import Form from '../Form/Form'
 
-// import styles from './SignUp.module.css'
-
 export default function SignUp() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -25,11 +23,8 @@ export default function SignUp() {
         )
         navigate('/')
       })
-      .catch(() => alert('ошибка регистрации'))
+      .catch((e) => navigate('/error', { state: e.message }))
   }
-  return (
-    <div>
-      <Form handleClick={handleRegistration} btnText="Зарегистрироваться" />
-    </div>
-  )
+  //  {/* TODO: переделать в нечто типа модального окна */}
+  return <Form handleClick={handleRegistration} btnText="Зарегистрироваться" />
 }

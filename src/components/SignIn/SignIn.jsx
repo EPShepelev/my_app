@@ -6,8 +6,6 @@ import { setUser } from '../../store/slices/user'
 
 import Form from '../Form/Form'
 
-// import styles from './SignIn.module.css'
-
 export default function SignIn() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -25,12 +23,8 @@ export default function SignIn() {
         )
         navigate('/')
       })
-      .catch(() => alert('ошибка авторизации'))
+      .catch((e) => navigate('/error', { state: e.message }))
   }
-  return (
-    <div>
-      {/* TODO: переделать в нечто типа модального окна */}
-      <Form handleClick={handleLogin} btnText="Войти" />
-    </div>
-  )
+  //  {/* TODO: переделать в нечто типа модального окна */}
+  return <Form handleClick={handleLogin} btnText="Войти" />
 }

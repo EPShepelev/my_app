@@ -26,5 +26,5 @@ export default function SignUp() {
       .catch((e) => navigate('/error', { state: e.message }))
   }
   //  {/* TODO: переделать в нечто типа модального окна */}
-  return <Form handleClick={handleRegistration} btnText="Зарегистрироваться" />
+  return <Form handleClick={handleRegistration} btnText="Регистрация" />
 }

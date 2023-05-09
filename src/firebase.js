@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,4 +11,12 @@ const firebaseConfig = {
 }
 
 // eslint-disable-next-line no-unused-vars
-const app = initializeApp(firebaseConfig)
+export const app = initializeApp(firebaseConfig)
+
+export const db = getFirestore()
+
+export const colRef = collection(db, 'posts')
+
+getDocs(colRef).then((snapshot) => {
+  console.log(snapshot.docs)
+})

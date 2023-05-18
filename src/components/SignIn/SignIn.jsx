@@ -21,6 +21,7 @@ export default function SignIn() {
             token: user.accessToken,
           })
         )
+        localStorage.setItem('auth', 'true')
         navigate('/')
       })
       .catch((e) => navigate('/error', { state: e.message }))

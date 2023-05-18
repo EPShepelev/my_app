@@ -16,6 +16,7 @@ export default function Home() {
 
   const logoutHandler = () => {
     dispatch(removeUser())
+    localStorage.removeItem('auth')
   }
 
   const [postTitle, setPostTitle] = useState('')

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getFirestore, collection } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -17,14 +17,14 @@ export const db = getFirestore()
 
 export const colRef = collection(db, 'posts')
 
-getDocs(colRef)
-  .then((snapshot) => {
-    const posts = []
-    snapshot.docs.forEach((doc) => {
-      posts.push({ ...doc.data(), id: doc.id })
-    })
-    console.log('posts', posts)
-  })
-  .catch((err) => {
-    console.log(err.message)
-  })
+// getDocs(colRef)
+//   .then((snapshot) => {
+//     const posts = []
+//     snapshot.docs.forEach((doc) => {
+//       posts.push({ ...doc.data(), id: doc.id })
+//     })
+//     console.log('posts', posts)
+//   })
+//   .catch((err) => {
+//     console.log(err.message)
+//   })

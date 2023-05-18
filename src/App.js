@@ -27,7 +27,7 @@ function App() {
       .then((snapshot) => {
         const posts = []
         snapshot.docs.forEach((doc) => {
-          posts.push({ ...doc.data() })
+          posts.push({ ...doc.data(), id: doc.id })
         })
         dispatch(setPosts(posts))
       })

@@ -16,15 +16,3 @@ export const app = initializeApp(firebaseConfig)
 export const db = getFirestore()
 
 export const colRef = collection(db, 'posts')
-
-// getDocs(colRef)
-//   .then((snapshot) => {
-//     const posts = []
-//     snapshot.docs.forEach((doc) => {
-//       posts.push({ ...doc.data(), id: doc.id })
-//     })
-//     console.log('posts', posts)
-//   })
-//   .catch((err) => {
-//     console.log(err.message)
-//   })

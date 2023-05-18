@@ -1,22 +1,27 @@
 import { Navigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
-import { ref, set } from 'firebase/database'
-import { nanoid } from 'nanoid'
+// TODO удалить импорт если nanoid не понадобиться
+// import { nanoid } from 'nanoid'
+import { addDoc } from 'firebase/firestore'
 
+// import AuthContext from '../context'
 import useAuth from '../hooks/useAuth'
 import { removeUser } from '../store/slices/user'
-import { db } from '../firebase'
 import Button from '../components/Button/Button'
 import Input from '../components/Input/Input'
 
+import { postsRef } from '../firebase'
+
 export default function Home() {
+  // const { isAuth, setIsAuth } = useContext(AuthContext)
   const dispatch = useDispatch()
   const { email, isAuth, id } = useAuth()
 
   const logoutHandler = () => {
     dispatch(removeUser())
-    localStorage.removeItem('auth')
+    // setIsAuth(false)
+    // localStorage.removeItem('auth')
   }
 
   const [postTitle, setPostTitle] = useState('')
@@ -25,11 +30,12 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    set(ref(db, `posts/ + ${nanoid()}`), {
+    addDoc(postsRef, {
       uid: id,
       title: postTitle,
       text: postText,
     })
+
     setPostTitle('')
     setPostText('')
   }
